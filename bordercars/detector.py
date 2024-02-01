@@ -116,7 +116,7 @@ class Detector:
                     bboxes = self.__filter_size(bboxes)
 
                 if self.filter_pos:
-                    bboxes = self.__filer_pos(chunk, bboxes)
+                    bboxes = self.__filter_pos(chunk, bboxes)
 
                 for bbox in bboxes:
                     bbox[0] += chunk_y
@@ -243,7 +243,7 @@ class Detector:
 
         return filtered_bboxes
 
-    def __filer_pos(self, chunk, bboxes):
+    def __filter_pos(self, chunk, bboxes):
         width, height, _ = chunk.shape
         filtered_bboxes = list()
 
