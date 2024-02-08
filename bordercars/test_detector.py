@@ -7,7 +7,7 @@ def test(model_path: str, config_path: str, ortho_path="test.tif"):
     :param config_path: path to .py config file
     :param ortho_path: path to orthophotoplane in TIFF image format
     """
-    if not (ortho_path.endswith(".tif") or ortho_path.endswith(".tiff")):
+    if not (ortho_path.endswith((".tif", ".tiff"))):
         raise ValueError(ortho_path + " is not in TIFF image format")
 
     import os

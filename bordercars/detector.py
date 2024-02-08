@@ -1,5 +1,5 @@
 import numpy as np
-from tifffile import imwrite, imread
+from tifffile import imread, imwrite
 from mmdet.apis import inference_detector
 
 
@@ -65,7 +65,7 @@ class Detector:
         :param ortho_path: path to orthophotoplane in TIFF image format
         :return: bounding boxes list
         """
-        if not (ortho_path.endswith(".tif") or ortho_path.endswith(".tiff")):
+        if not (ortho_path.endswith((".tif", ".tiff"))):
             raise ValueError(ortho_path + " is not in TIFF image format")
 
         self.__image = imread(ortho_path)
@@ -173,10 +173,10 @@ class Detector:
         :param ortho_path: path to orthophotoplane in TIFF image format
         :param save_path: path to save orthophotoplane with drawn bounding boxes to in TIFF image format
         """
-        if not (ortho_path.endswith(".tif") or ortho_path.endswith(".tiff")):
+        if not (ortho_path.endswith((".tif", ".tiff"))):
             raise ValueError(ortho_path + " is not in TIFF image format")
 
-        if not (save_path.endswith(".tif") or save_path.endswith(".tiff")):
+        if not (save_path.endswith((".tif", ".tiff"))):
             raise ValueError(save_path + " is not in TIFF image format")
 
         import cv2
